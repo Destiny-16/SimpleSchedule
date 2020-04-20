@@ -1,24 +1,40 @@
 import React, { useEffect } from 'react';
 import Axios from 'axios'
+class TimeOff extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        name: '',
+        id:'',
+        leaveDate: '',
+        returnDate:''
 
-export default () => {
+                };
 
-    return <>
-       <body>
-        <form method="POST" action="cp.php"> 
+  }
+
+  handleChange(event) {    this.setState({value: event.target.value});  }
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+        <body>
+        <form method="POST" action="#" > 
         <h1>Time Off Request Form</h1>
             <div style={{backgroundColor: "lightblue"}}>
             <p>Name: </p>
                 <input
-                    type="text" name="name"
-                />
+                    type="text" value={this.state.name}/>
 
             <br></br>
             <br></br>
 
             <p>Employee ID: </p>
                 <input
-                        type="text" name="id"
+                        type="text" value={this.state.id}
                 />   
 
             <br></br>
@@ -26,7 +42,7 @@ export default () => {
 
             <p>Leave Date: </p>
                 <input
-                        type="text" name="leaveDate"
+                        type="text" value={this.state.leaveDate}
                 />  
 
             <br></br>
@@ -34,14 +50,16 @@ export default () => {
 
             <p>Return Date: </p>
                 <input
-                        type="text" name="returnDate"
+                        type="text" value={this.state.returnDate}
                 />               
             </div>
 
             <br></br>
 
-            <input type="submit" value="Submit" href="cp.php"></input>
+            <input type="submit" value="Submit"></input>
         </form>
     </body>
-    </>
+    );
+  }
 }
+export default TimeOff;
