@@ -4,25 +4,22 @@ class TimeOff extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        name: '',
-        id:'',
-        leaveDate: '',
-        returnDate:''
-
-                };
-
+        name: null,
+        id:null,
+        leaveDate: null,
+        returnDate:null};
   }
 
-  handleChange(event) {    this.setState({value: event.target.value});  }
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
+   saveData(event){
+    event.preventDefault();   
+    console.log(event.target);
   }
+ 
 
   render() {
     return (
         <body>
-        <form method="POST" action="#" > 
+        <form method="POST" onSubmit={this.saveData}> 
         <h1>Time Off Request Form</h1>
             <div style={{backgroundColor: "lightblue"}}>
             <p>Name: </p>
